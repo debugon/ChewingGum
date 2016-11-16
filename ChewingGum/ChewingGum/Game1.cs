@@ -30,7 +30,7 @@ namespace ChewingGum
         /// コンポーネント
         /// </summary>
         MenuComponent menuCompo;
-        StageDrawer playCompo;
+        PlayComponent playCompo;
 
         /// <summary>
         /// メニューアイテム
@@ -65,8 +65,6 @@ namespace ChewingGum
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
-            //Components.Add(new StageDrawer(this));
         }
 
         /// <summary>
@@ -84,7 +82,7 @@ namespace ChewingGum
             graphics.PreferredBackBufferHeight = 720;
 
             menuCompo = new MenuComponent(this);
-            playCompo = new StageDrawer(this);
+            playCompo = new PlayComponent(this);
 
             mode = GameMode.Menu;
 
