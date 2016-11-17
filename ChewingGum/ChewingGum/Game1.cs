@@ -42,8 +42,7 @@ namespace ChewingGum
         }
 
         GameMode mode;
-
-
+        
         /// <summary>
         /// PlayerModel
         /// </summary>

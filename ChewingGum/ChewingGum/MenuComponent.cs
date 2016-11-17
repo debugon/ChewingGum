@@ -9,7 +9,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-
 namespace ChewingGum
 {
     /// <summary>
@@ -25,14 +24,19 @@ namespace ChewingGum
         private SpriteBatch spriteBatch;
 
         /// <summary>
-        /// テクスチャ：非選択状態
+        /// テクスチャ
+        /// </summary>
+        private Texture2D titleTexture;
+
+        /// <summary>
+        /// アイテムテクスチャ：非選択状態
         /// </summary>
         private Texture2D menuStartTexture;
         private Texture2D menuOptionTexture;
         private Texture2D menuExitTexture;
 
         /// <summary>
-        /// テクスチャ：選択状態
+        /// アイテムテクスチャ：選択状態
         /// </summary>
         private Texture2D menuStartSelectedTexture;
         private Texture2D menuOptionSelectedTexture;
@@ -44,6 +48,19 @@ namespace ChewingGum
         private Vector2 position1;
         private Vector2 position2;
         private Vector2 position3;
+
+        /// <summary>
+        /// ビデオ
+        /// </summary>
+        /// 対応ファイルは.wmvのみ
+        /// Single CBR, VC-1, DBR無し
+        /// 他詳しい仕様は下記参照
+        /// https://msdn.microsoft.com/ja-jp/library/dd254869.aspx
+        private Video video;
+        private VideoPlayer videoPlayer;
+        
+        //VideoPlayer.GetTexture()の返り値がTexture2Dなので不要
+        //private Texture2D videoTexture;
 
         /// <summary>
         /// メニューアイテム
@@ -67,6 +84,7 @@ namespace ChewingGum
             : base(game)
         {
             // TODO: Construct any child components here
+
         }
 
         /// <summary>
@@ -76,6 +94,7 @@ namespace ChewingGum
         public override void Initialize()
         {
             // TODO: Add your initialization code here
+            
             // InputManager初期化
             InputManager.Initialize();
 
@@ -102,19 +121,36 @@ namespace ChewingGum
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            // アイテムのテクスチャ読み込み
-            LoadMenuItem();
+            // テクスチャ読み込み
+            LoadTexture();
+            LoadVideo();
         }
 
-        private void LoadMenuItem()
+        private void LoadTexture()
         {
-            menuStartTexture = Game.Content.Load<Texture2D>("MenuItem\\start_white");
-            menuOptionTexture = Game.Content.Load<Texture2D>("MenuItem\\option_white");
-            menuExitTexture = Game.Content.Load<Texture2D>("MenuItem\\exit_white");
+            //タイトル
+            titleTexture = Game.Content.Load<Texture2D>("img\\title");
 
-            menuStartSelectedTexture = Game.Content.Load<Texture2D>("MenuItem\\start_yellow");
-            menuOptionSelectedTexture = Game.Content.Load<Texture2D>("MenuItem\\option_yellow");
-            menuExitSelectedTexture = Game.Content.Load<Texture2D>("MenuItem\\exit_yellow");
+            //メニューアイテム
+            menuStartTexture = Game.Content.Load<Texture2D>("img\\MenuItem\\start_white");
+            menuOptionTexture = Game.Content.Load<Texture2D>("img\\MenuItem\\option_white");
+            menuExitTexture = Game.Content.Load<Texture2D>("img\\MenuItem\\exit_white");
+
+            menuStartSelectedTexture = Game.Content.Load<Texture2D>("img\\MenuItem\\start_yellow");
+            menuOptionSelectedTexture = Game.Content.Load<Texture2D>("img\\MenuItem\\option_yellow");
+            menuExitSelectedTexture = Game.Content.Load<Texture2D>("img\\MenuItem\\exit_yellow");
+        }
+
+        private void LoadVideo()
+        {
+            //ビデオ読み込み
+            video = Game.Content.Load<Video>("test");
+
+            //プレーヤーのインスタンスを作成
+            videoPlayer = new VideoPlayer();
+
+            //ループする
+            videoPlayer.IsLooped = true;
         }
 
         /// <summary>
@@ -133,10 +169,22 @@ namespace ChewingGum
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
+
+            //選択状態
             if (selected)
             {
                 selected = false;
             }
+
+            #region ビデオ再生
+
+            //もし再生が止まっていたら再生
+            if (videoPlayer.State == MediaState.Stopped)
+                videoPlayer.Play(video);
+
+            #endregion
+
+            #region 入力処理
 
             if (InputManager.IsJustKeyDown(Keys.Up) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.LeftThumbstickUp))
             {
@@ -157,6 +205,8 @@ namespace ChewingGum
                 selected = true;
             }
 
+            #endregion
+
             //入力取得および更新
             InputManager.Update();
 
@@ -174,6 +224,16 @@ namespace ChewingGum
             // TODO: Add your drawing code here
             // スプライト書き込み開始
             spriteBatch.Begin();
+
+            #region ビデオ描画
+
+            //ビデオが再生されていたら描画
+            if (videoPlayer.State == MediaState.Playing)
+                spriteBatch.Draw(videoPlayer.GetTexture(), Vector2.Zero, Color.White);
+
+            #endregion
+
+            #region メニューアイテム描画
 
             switch (menu)
             {
@@ -195,6 +255,8 @@ namespace ChewingGum
                     spriteBatch.Draw(menuExitSelectedTexture, position3, Color.White);
                     break;
             }
+
+            #endregion
 
             spriteBatch.End();
 

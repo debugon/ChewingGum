@@ -64,35 +64,49 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuItem\exit_white.png">
+    <Compile Include="img\MenuItem\exit_white.png">
       <Name>exit_white</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="MenuItem\exit_yellow.png">
+    <Compile Include="img\MenuItem\exit_yellow.png">
       <Name>exit_yellow</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="MenuItem\option_white.png">
+    <Compile Include="img\MenuItem\option_white.png">
       <Name>option_white</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="MenuItem\option_yellow.png">
+    <Compile Include="img\MenuItem\option_yellow.png">
       <Name>option_yellow</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="MenuItem\start_white.png">
+    <Compile Include="img\MenuItem\start_white.png">
       <Name>start_white</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="MenuItem\start_yellow.png">
+    <Compile Include="img\MenuItem\start_yellow.png">
       <Name>start_yellow</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="img\title.png">
+      <Name>title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="test.wmv">
+      <Name>test</Name>
+      <Importer>WmvImporter</Importer>
+      <Processor>VideoProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
