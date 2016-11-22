@@ -28,6 +28,7 @@ namespace ChewingGum
         /// テクスチャ
         /// </summary>
         private Texture2D titleTexture;
+        private Texture2D menuTexture;
 
         /// <summary>
         /// アイテムテクスチャ：非選択状態
@@ -46,9 +47,9 @@ namespace ChewingGum
         /// <summary>
         /// アイテムポジション
         /// </summary>
-        private Vector2 position1;
-        private Vector2 position2;
-        private Vector2 position3;
+        private Vector2 menuStartPosition;
+        private Vector2 menuOptionPosition;
+        private Vector2 menuExitPosition;
 
         /// <summary>
         /// ビデオ
@@ -106,9 +107,9 @@ namespace ChewingGum
 
         private void InitializePosition()
         {
-            position1 = new Vector2(300.0f, 100.0f);
-            position2 = new Vector2(300.0f, 200.0f);
-            position3 = new Vector2(300.0f, 300.0f);
+            menuStartPosition = new Vector2(360.0f, 450.0f);
+            menuOptionPosition = new Vector2(360.0f, 500.0f);
+            menuExitPosition = new Vector2(360.0f, 550.0f);
         }
 
         /// <summary>
@@ -130,6 +131,7 @@ namespace ChewingGum
         {
             //タイトル
             titleTexture = Game.Content.Load<Texture2D>("img\\title");
+            menuTexture = Game.Content.Load<Texture2D>("img\\menu");
                                     
             //メニューアイテム
             menuStartTexture = Game.Content.Load<Texture2D>("img\\MenuItem\\start_white");
@@ -234,28 +236,29 @@ namespace ChewingGum
             #endregion
 
             //タイトルロゴ描画
-            spriteBatch.Draw(titleTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
+            spriteBatch.Draw(menuTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
+            spriteBatch.Draw(titleTexture, new Rectangle(GraphicsDevice.Viewport.Width / 10, GraphicsDevice.Viewport.Height / 10, GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), Color.White);
 
             #region メニューアイテム描画
 
             switch (menu)
             {
                 case Menu.Start:
-                    spriteBatch.Draw(menuStartSelectedTexture, position1, Color.White);
-                    spriteBatch.Draw(menuOptionTexture, position2, Color.White);
-                    spriteBatch.Draw(menuExitTexture, position3, Color.White);
+                    spriteBatch.Draw(menuStartSelectedTexture, menuStartPosition, Color.White);
+                    spriteBatch.Draw(menuOptionTexture, menuOptionPosition, Color.White);
+                    spriteBatch.Draw(menuExitTexture, menuExitPosition, Color.White);
                     break;
 
                 case Menu.Option:
-                    spriteBatch.Draw(menuStartTexture, position1, Color.White);
-                    spriteBatch.Draw(menuOptionSelectedTexture, position2, Color.White);
-                    spriteBatch.Draw(menuExitTexture, position3, Color.White);
+                    spriteBatch.Draw(menuStartTexture, menuStartPosition, Color.White);
+                    spriteBatch.Draw(menuOptionSelectedTexture, menuOptionPosition, Color.White);
+                    spriteBatch.Draw(menuExitTexture, menuExitPosition, Color.White);
                     break;
 
                 case Menu.Exit:
-                    spriteBatch.Draw(menuStartTexture, position1, Color.White);
-                    spriteBatch.Draw(menuOptionTexture, position2, Color.White);
-                    spriteBatch.Draw(menuExitSelectedTexture, position3, Color.White);
+                    spriteBatch.Draw(menuStartTexture, menuStartPosition, Color.White);
+                    spriteBatch.Draw(menuOptionTexture, menuOptionPosition, Color.White);
+                    spriteBatch.Draw(menuExitSelectedTexture, menuExitPosition, Color.White);
                     break;
             }
 
