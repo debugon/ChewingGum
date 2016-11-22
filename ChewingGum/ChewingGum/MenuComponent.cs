@@ -234,7 +234,7 @@ namespace ChewingGum
             #endregion
 
             //タイトルロゴ描画
-            spriteBatch.Draw(titleTexture, new Rectangle(0, 0, 1280, 720), Color.White);
+            spriteBatch.Draw(titleTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
 
             #region メニューアイテム描画
 
