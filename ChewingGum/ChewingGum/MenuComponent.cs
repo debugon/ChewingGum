@@ -21,6 +21,7 @@ namespace ChewingGum
         /// <summary>
         /// グラフィック
         /// </summary>
+        private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
         /// <summary>
@@ -84,7 +85,6 @@ namespace ChewingGum
             : base(game)
         {
             // TODO: Construct any child components here
-
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace ChewingGum
         public override void Initialize()
         {
             // TODO: Add your initialization code here
-            
+
             // InputManager初期化
             InputManager.Initialize();
 
@@ -130,7 +130,7 @@ namespace ChewingGum
         {
             //タイトル
             titleTexture = Game.Content.Load<Texture2D>("img\\title");
-
+                                    
             //メニューアイテム
             menuStartTexture = Game.Content.Load<Texture2D>("img\\MenuItem\\start_white");
             menuOptionTexture = Game.Content.Load<Texture2D>("img\\MenuItem\\option_white");
@@ -232,6 +232,9 @@ namespace ChewingGum
                 spriteBatch.Draw(videoPlayer.GetTexture(), Vector2.Zero, Color.White);
 
             #endregion
+
+            //タイトルロゴ描画
+            spriteBatch.Draw(titleTexture, new Rectangle(0, 0, 1280, 720), Color.White);
 
             #region メニューアイテム描画
 

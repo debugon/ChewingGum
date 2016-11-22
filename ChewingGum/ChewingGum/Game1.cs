@@ -64,6 +64,10 @@ namespace ChewingGum
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            
+            //ウィンドウサイズ
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 720;
         }
 
         /// <summary>
@@ -75,10 +79,6 @@ namespace ChewingGum
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            
-            //ウィンドウサイズ
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 720;
 
             menuCompo = new MenuComponent(this);
             playCompo = new PlayComponent(this);
