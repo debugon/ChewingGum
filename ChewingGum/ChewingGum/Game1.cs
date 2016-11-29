@@ -42,22 +42,7 @@ namespace ChewingGum
         }
 
         GameMode mode;
-        
-        /// <summary>
-        /// PlayerModel
-        /// </summary>
-        private Model player;
-        private Matrix[] playerTransform;
-        private Matrix playerWorld;
-        private BoundingBox boundingPlayer;
-        private Vector3 playerPosition;
-        private Vector3 rotation;
-
-        /// <summary>
-        /// カメラ
-        /// </summary>
-        private Camera camera;
-        
+            
         #endregion
 
         public Game1()
@@ -92,24 +77,6 @@ namespace ChewingGum
 
             base.Initialize();
         }
-
-        /// <summary>
-        /// カメラの初期化
-        /// </summary>
-        private void InitializeCamera()
-        {
-            // カメラを生成する
-            camera = new Camera();
-
-            // パラメータを設定
-            camera.FieldOfView = MathHelper.ToRadians(45.0f);
-            camera.AspectRatio = (float)GraphicsDevice.Viewport.Width / (float)GraphicsDevice.Viewport.Height;
-            camera.NearPlaneDistance = 1.0f;
-            camera.FarPlaneDistance = 20000.0f;
-            camera.ReferenceTranslate = new Vector3(0.0f, 500.0f, 1000.0f);
-            camera.Target = new Vector3(0.0f, 100.0f, 0.0f);
-            
-        }
         
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -121,33 +88,8 @@ namespace ChewingGum
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            LoadSkinnedModel(@"ouji_3");
         }
-
-        /// <summary>
-        /// スキンモデルの読み込み処理
-        /// </summary>
-        private void LoadSkinnedModel(string assetName)
-        {
-            // モデルを読み込む
-            player = Content.Load<Model>(assetName);
-            playerTransform = new Matrix[player.Bones.Count];
-            player.CopyAbsoluteBoneTransformsTo(playerTransform);
-            playerPosition = new Vector3(0, 0, 0);
-            playerWorld = Matrix.CreateScale(0.1f) * Matrix.CreateTranslation(playerPosition);
-
-            //// SkinningDataを取得
-            //skinningData = model.Tag as SkinningData;
-
-            //if (skinningData == null)
-            //    throw new InvalidOperationException
-            //        ("This model does not contain a SkinningData tag.");
-
-            //// AnimationPlayerを作成
-            //animationPlayer = new AnimationPlayer(skinningData);
-
-        }
-
+        
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
@@ -211,39 +153,6 @@ namespace ChewingGum
 
             base.Draw(gameTime);
         }
-
-        private void DrawSkinModel(Model model, Matrix[] transforms, Matrix world)
-        {
-            foreach (ModelMesh mesh in model.Meshes)
-            {
-                //AnimationPlayerがないので保留
-                //foreach (SkinnedEffect effect in mesh.Effects)
-                //{
-                //    effect.SetBoneTransforms(animationPlayer.GetSkinTransforms());
-                //    effect.View = camera.View;
-                //    effect.Projection = camera.Projection;
-                //}
-
-                //代わりにDrawModelから流用
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.PreferPerPixelLighting = true;
-                    effect.EnableDefaultLighting();
-
-                    effect.View = camera.View;
-                    effect.Projection = camera.Projection;
-                    effect.World = transforms[mesh.ParentBone.Index] * world;
-
-                    effect.DirectionalLight0.Enabled = true;
-                    effect.DirectionalLight1.Enabled = true;
-                    effect.DirectionalLight2.Enabled = true;
-
-                }
-
-                mesh.Draw();
-            }
-        }
-
 
     }
 }
