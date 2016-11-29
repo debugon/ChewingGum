@@ -115,8 +115,8 @@ namespace ChewingGum
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            spriteBatch.Draw(menuTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.LightGray);
-            spriteBatch.Draw(guideTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
+            spriteBatch.Draw(menuTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.Gray);
+            spriteBatch.Draw(guideTexture, Vector2.Zero, Color.White);
 
             spriteBatch.End();
             base.Draw(gameTime);
