@@ -21,7 +21,6 @@ namespace ChewingGum
         /// <summary>
         /// グラフィック
         /// </summary>
-        private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
         /// <summary>
@@ -70,7 +69,7 @@ namespace ChewingGum
         public enum Menu
         {
             Start,
-            Option,
+            Guide,
             Exit
         }
 
@@ -249,7 +248,7 @@ namespace ChewingGum
                     spriteBatch.Draw(menuExitTexture, menuExitPosition, Color.White);
                     break;
 
-                case Menu.Option:
+                case Menu.Guide:
                     spriteBatch.Draw(menuStartTexture, menuStartPosition, Color.White);
                     spriteBatch.Draw(menuOptionSelectedTexture, menuOptionPosition, Color.White);
                     spriteBatch.Draw(menuExitTexture, menuExitPosition, Color.White);

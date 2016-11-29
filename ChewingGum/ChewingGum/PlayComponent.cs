@@ -22,7 +22,6 @@ namespace ChewingGum
         /// <summary>
         /// グラフィック
         /// </summary>
-        GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         #endregion

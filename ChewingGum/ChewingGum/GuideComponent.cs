@@ -19,7 +19,27 @@ namespace ChewingGum
     {
         #region フィールド
 
-        
+        /// <summary>
+        /// グラフィック
+        /// </summary>
+        private SpriteBatch spriteBatch;
+
+        /// <summary>
+        /// ページ数
+        /// </summary>
+        //private const int pages = 1;
+
+        /// <summary>
+        /// テクスチャ
+        /// </summary>
+        private Texture2D menuTexture;
+        private Texture2D guideTexture;
+
+        /// <summary>
+        /// 終了フラグ
+        /// </summary>
+        private bool ended = false;
+
         #endregion
 
         public GuideComponent(Game game)
@@ -35,8 +55,32 @@ namespace ChewingGum
         public override void Initialize()
         {
             // TODO: Add your initialization code here
+            InputManager.Initialize();
 
             base.Initialize();
+        }
+
+        /// <summary>
+        /// LoadContent will be called once per game and is the place to load
+        /// all of your content.
+        /// </summary>
+        protected override void LoadContent()
+        {
+            // Create a new SpriteBatch, which can be used to draw textures.
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            // TODO: use this.Content to load your game content here
+            menuTexture = Game.Content.Load<Texture2D>(@"img\\menu");
+            guideTexture = Game.Content.Load<Texture2D>(@"img\\guide");
+        }
+
+        /// <summary>
+        /// UnloadContent will be called once per game and is the place to unload
+        /// all content.
+        /// </summary>
+        protected override void UnloadContent()
+        {
+            // TODO: Unload any non ContentManager content here
         }
 
         /// <summary>
@@ -47,7 +91,40 @@ namespace ChewingGum
         {
             // TODO: Add your update code here
 
+            if (ended)
+                ended = false;
+
+            if(InputManager.IsJustKeyDown(Keys.Enter) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.A))
+            {
+                ended = true;
+            }
+
+            InputManager.Update();
+
             base.Update(gameTime);
+        }
+
+        /// <summary>
+        /// This is called when the game should draw itself.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        public override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(menuTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.LightGray);
+            spriteBatch.Draw(guideTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
+
+            spriteBatch.End();
+            base.Draw(gameTime);
+        }
+
+        public bool IsEnded()
+        {
+            return ended;
         }
     }
 }
