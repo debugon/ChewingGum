@@ -70,8 +70,8 @@ namespace ChewingGum
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            menuTexture = Game.Content.Load<Texture2D>(@"img\\menu");
-            guideTexture = Game.Content.Load<Texture2D>(@"img\\guide");
+            menuTexture = Game.Content.Load<Texture2D>(@"img\menu");
+            guideTexture = Game.Content.Load<Texture2D>(@"img\guide");
         }
 
         /// <summary>
