@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="GuideComponent.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="MenuComponent.cs" />
     <Compile Include="PlayComponent.cs" />
