@@ -101,7 +101,18 @@
   <ItemGroup>
     <Folder Include="res\bgm\" />
     <Folder Include="res\model\" />
-    <Folder Include="res\se\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="res\se\ItemCanceled.wav">
+      <Name>ItemCanceled</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="res\se\ItemSelect.wav">
+      <Name>ItemSelect</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
