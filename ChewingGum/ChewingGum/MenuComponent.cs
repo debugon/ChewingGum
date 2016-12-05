@@ -129,17 +129,17 @@ namespace ChewingGum
         private void LoadTexture()
         {
             //タイトル
-            titleTexture = Game.Content.Load<Texture2D>(@"img\title");
-            menuTexture = Game.Content.Load<Texture2D>(@"img\menu");
+            titleTexture = Game.Content.Load<Texture2D>(@"res\img\title");
+            menuTexture = Game.Content.Load<Texture2D>(@"res\img\menu");
                                     
             //メニューアイテム
-            menuStartTexture = Game.Content.Load<Texture2D>(@"img\MenuItem\start_white");
-            menuOptionTexture = Game.Content.Load<Texture2D>(@"img\MenuItem\option_white");
-            menuExitTexture = Game.Content.Load<Texture2D>(@"img\MenuItem\exit_white");
+            menuStartTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\start_white");
+            menuOptionTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\option_white");
+            menuExitTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\exit_white");
 
-            menuStartSelectedTexture = Game.Content.Load<Texture2D>(@"img\MenuItem\start_yellow");
-            menuOptionSelectedTexture = Game.Content.Load<Texture2D>(@"img\MenuItem\option_yellow");
-            menuExitSelectedTexture = Game.Content.Load<Texture2D>(@"img\MenuItem\exit_yellow");
+            menuStartSelectedTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\start_yellow");
+            menuOptionSelectedTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\option_yellow");
+            menuExitSelectedTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\exit_yellow");
         }
 
         private void LoadVideo()
