@@ -32,6 +32,7 @@ namespace ChewingGum
         /// </summary>
         public static void Initialize()
         {
+            //LoadContentではないので相対パスで指定してあげる必要がある
             audioEngine = new AudioEngine(@"Content\res\audio\Audio.xgs");
             soundEffectWave = new WaveBank(audioEngine, @"Content\res\audio\SoundEffectWave.xwb");
             soundEffectBank = new SoundBank(audioEngine, @"Content\res\audio\SoundEffectBank.xsb");
