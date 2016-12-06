@@ -5,13 +5,22 @@ namespace ChewingGum
     public class AudioManager
     {
         #region フィールド
+        /// <summary>
+        /// 再生用オーディオエンジン
+        /// </summary>
+        private static AudioEngine audioEngine;
 
         /// <summary>
         /// サウンドエフェクト
         /// </summary>
-        private static AudioEngine audioEngine;
         private static WaveBank soundEffectWave;
         private static SoundBank soundEffectBank;
+
+        /// <summary>
+        /// ＢＧＭ
+        /// </summary>
+        private static WaveBank backgroundMusicWave;
+        private static SoundBank backgroundMusicBank;
 
         public enum Sound
         {
@@ -34,6 +43,7 @@ namespace ChewingGum
         {
             //LoadContentではないので相対パスで指定してあげる必要がある
             audioEngine = new AudioEngine(@"Content\res\audio\Audio.xgs");
+
             soundEffectWave = new WaveBank(audioEngine, @"Content\res\audio\SoundEffectWave.xwb");
             soundEffectBank = new SoundBank(audioEngine, @"Content\res\audio\SoundEffectBank.xsb");
         }
