@@ -38,7 +38,7 @@ namespace ChewingGum
         /// <summary>
         /// I—¹ƒtƒ‰ƒO
         /// </summary>
-        private bool ended = false;
+        private bool isEnded = false;
 
         #endregion
 
@@ -91,12 +91,12 @@ namespace ChewingGum
         {
             // TODO: Add your update code here
 
-            if (ended)
-                ended = false;
+            if (isEnded)
+                isEnded = false;
 
             if(InputManager.IsJustKeyDown(Keys.Enter) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.A))
             {
-                ended = true;
+                isEnded = true;
             }
 
             InputManager.Update();
@@ -124,7 +124,7 @@ namespace ChewingGum
 
         public bool IsEnded()
         {
-            return ended;
+            return isEnded;
         }
     }
 }

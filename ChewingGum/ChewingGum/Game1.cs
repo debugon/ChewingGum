@@ -40,7 +40,8 @@ namespace ChewingGum
         {
             Menu,
             Play,
-            Guide
+            Guide,
+            Result
         }
 
         GameMode mode;
@@ -158,6 +159,10 @@ namespace ChewingGum
                     break;
 
                 case GameMode.Play:
+
+                    break;
+
+                case GameMode.Result:
 
                     break;
 

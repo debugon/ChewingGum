@@ -15,19 +15,17 @@ namespace ChewingGum
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class PlayComponent : Microsoft.Xna.Framework.DrawableGameComponent
+    public class ResultComponent : Microsoft.Xna.Framework.DrawableGameComponent
     {
         #region フィールド
-
         /// <summary>
         /// グラフィック
         /// </summary>
-        SpriteBatch spriteBatch;
+        private SpriteBatch spriteBatch;
 
-        private bool isEnded = false;
+
         #endregion
-
-        public PlayComponent(Game game)
+        public ResultComponent(Game game)
             : base(game)
         {
             // TODO: Construct any child components here
@@ -40,8 +38,6 @@ namespace ChewingGum
         public override void Initialize()
         {
             // TODO: Add your initialization code here
-            //InputManager初期化
-            InputManager.Initialize();
 
             base.Initialize();
         }
@@ -56,7 +52,7 @@ namespace ChewingGum
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            
+
         }
 
         /// <summary>
