@@ -49,7 +49,7 @@ namespace ChewingGum
         private Vector2 menuStartPosition;
         private Vector2 menuOptionPosition;
         private Vector2 menuExitPosition;
-
+        
         /// <summary>
         /// ビデオ
         /// </summary>
@@ -97,6 +97,9 @@ namespace ChewingGum
 
             // InputManager初期化
             InputManager.Initialize();
+
+            //AuidoManager初期化
+            AudioManager.Initialize();
 
             //メニューアイテムの座標セット
             InitializePosition();
@@ -192,6 +195,7 @@ namespace ChewingGum
                 if (Menu.Start < menu)
                 {
                     menu--;
+                    AudioManager.SoundItem(AudioManager.Sound.ItemSelect);
                 }
             }
             else if (InputManager.IsJustKeyDown(Keys.Down) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.LeftThumbstickDown))
@@ -199,11 +203,23 @@ namespace ChewingGum
                 if (menu < Menu.Exit)
                 {
                     menu++;
+                    AudioManager.SoundItem(AudioManager.Sound.ItemSelect);
                 }
             }
             else if (InputManager.IsJustKeyDown(Keys.Enter) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.A))
             {
                 selected = true;
+
+                switch (menu)
+                {
+                    case Menu.Exit:
+                        AudioManager.SoundItem(AudioManager.Sound.ItemCanceled);
+                        break;
+
+                    default:
+                        AudioManager.SoundItem(AudioManager.Sound.ItemSelected);
+                        break;
+                }
             }
 
             #endregion
