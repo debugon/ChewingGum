@@ -32,6 +32,7 @@ namespace ChewingGum
         MenuComponent menuCompo;
         PlayComponent playCompo;
         GuideComponent guideCompo;
+        ResultComponent resultCompo;
 
         /// <summary>
         /// メニューアイテム
@@ -75,6 +76,7 @@ namespace ChewingGum
             menuCompo = new MenuComponent(this);
             playCompo = new PlayComponent(this);
             guideCompo = new GuideComponent(this);
+            resultCompo = new ResultComponent(this);
 
             mode = GameMode.Menu;
 
@@ -159,7 +161,14 @@ namespace ChewingGum
                     break;
 
                 case GameMode.Play:
+                    if (playCompo.IsEnded())
+                    {
+                        Components.Remove(playCompo);
+                        Components.Add(resultCompo);
 
+                        mode = GameMode.Result;
+                        break;
+                    }
                     break;
 
                 case GameMode.Result:

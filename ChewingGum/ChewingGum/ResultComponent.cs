@@ -22,9 +22,9 @@ namespace ChewingGum
         /// グラフィック
         /// </summary>
         private SpriteBatch spriteBatch;
-
-
+            
         #endregion
+
         public ResultComponent(Game game)
             : base(game)
         {
@@ -38,6 +38,9 @@ namespace ChewingGum
         public override void Initialize()
         {
             // TODO: Add your initialization code here
+
+            //InputManager初期化
+            InputManager.Initialize();
 
             base.Initialize();
         }
@@ -84,7 +87,7 @@ namespace ChewingGum
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            Console.WriteLine("TEST");
+            Console.WriteLine("!!! Show Result !!!");
 
             base.Draw(gameTime);
         }

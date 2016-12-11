@@ -24,7 +24,11 @@ namespace ChewingGum
         /// </summary>
         SpriteBatch spriteBatch;
 
+        /// <summary>
+        /// èIóπÉtÉâÉO
+        /// </summary>
         private bool isEnded = false;
+
         #endregion
 
         public PlayComponent(Game game)
@@ -75,6 +79,13 @@ namespace ChewingGum
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
+            if(InputManager.IsJustKeyDown(Keys.Enter) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.A))
+            {
+                isEnded = true;
+
+            }
+
+            InputManager.Update();
 
             base.Update(gameTime);
         }
@@ -88,9 +99,14 @@ namespace ChewingGum
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            Console.WriteLine("TEST");
+            Console.WriteLine("!!! Play Now !!!");
 
             base.Draw(gameTime);
+        }
+
+        public bool IsEnded()
+        {
+            return isEnded;
         }
     }
 }

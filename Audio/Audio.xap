@@ -16,8 +16,8 @@ Global Settings
     Header File = C:\Users\Toshinori\OneDrive\Projects\ChewingGum\Audio\Audio.h;
     Exclude Category Names = 0;
     Exclude Variable Names = 0;
-    Last Modified Low = 4260505764;
-    Last Modified High = 30560125;
+    Last Modified Low = 30560125;
+    Last Modified High = 4260505764;
 
     Category
     {
@@ -229,6 +229,8 @@ Wave Bank
     Xbox Bank Last Modified High = 0;
     PC Bank Last Modified Low = 3233682688;
     PC Bank Last Modified High = 30560144;
+    Header Last Modified Low = 0;
+    Header Last Modified High = 0;
     Bank Last Revised Low = 2891916380;
     Bank Last Revised High = 30560144;
 
@@ -302,6 +304,19 @@ Wave Bank
     }
 }
 
+Wave Bank
+{
+    Name = BackgroundMusicWave;
+    Xbox File = Xbox\BackgroundMusicWave.xwb;
+    Windows File = Win\BackgroundMusicWave.xwb;
+    Xbox Bank Path Edited = 0;
+    Windows Bank Path Edited = 0;
+    Seek Tables = 1;
+    Compression Preset Name = <none>;
+    Bank Last Revised Low = 797699992;
+    Bank Last Revised High = 30560155;
+}
+
 Sound Bank
 {
     Name = SoundEffectBank;
@@ -309,8 +324,6 @@ Sound Bank
     Windows File = Win\SoundEffectBank.xsb;
     Xbox Bank Path Edited = 0;
     Windows Bank Path Edited = 0;
-    Bank Last Modified Low = 3233838912;
-    Bank Last Modified High = 30560144;
     Header Last Modified High = 0;
     Header Last Modified Low = 0;
 
@@ -514,4 +527,13 @@ Sound Bank
             Weight Max = 255;
         }
     }
+}
+
+Sound Bank
+{
+    Name = BackgroundMusicBank;
+    Xbox File = Xbox\BackgroundMusicBank.xsb;
+    Windows File = Win\BackgroundMusicBank.xsb;
+    Xbox Bank Path Edited = 0;
+    Windows Bank Path Edited = 0;
 }
