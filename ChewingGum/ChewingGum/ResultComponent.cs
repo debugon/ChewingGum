@@ -29,6 +29,8 @@ namespace ChewingGum
         private SpriteFont font;
         private const int fontSize = 64;
 
+
+        private bool isEnded = false;
         #endregion
 
         public ResultComponent(Game game)
@@ -62,7 +64,7 @@ namespace ChewingGum
 
             // TODO: use this.Content to load your game content here
             font = Game.Content.Load<SpriteFont>(@"memoFont");
-
+            
         }
 
         /// <summary>
@@ -82,6 +84,13 @@ namespace ChewingGum
         {
             // TODO: Add your update code here
 
+            if(InputManager.IsJustKeyDown(Keys.Enter) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.B))
+            {
+                isEnded = true;
+            }
+
+            InputManager.Update();
+
             base.Update(gameTime);
         }
 
@@ -98,10 +107,15 @@ namespace ChewingGum
 
             spriteBatch.Begin();
             spriteBatch.DrawString(font, "Congratulation!", Vector2.Zero, Color.White);
-            spriteBatch.DrawString(font, "GmaeTime:", new Vector2(fontSize, fontSize + 10), Color.White);
+            spriteBatch.DrawString(font, "GameTime:", new Vector2(fontSize, fontSize + 10), Color.White);
             
             spriteBatch.End();
             base.Draw(gameTime);
+        }
+
+        public bool IsEnded()
+        {
+            return isEnded;
         }
     }
 }

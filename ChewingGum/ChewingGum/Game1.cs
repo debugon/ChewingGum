@@ -155,6 +155,8 @@ namespace ChewingGum
                         Components.Remove(guideCompo);
                         Components.Add(menuCompo);
 
+                        //再初期化
+                        guideCompo = new GuideComponent(this);
                         mode = GameMode.Menu;
                         break;
                     }
@@ -166,13 +168,21 @@ namespace ChewingGum
                         Components.Remove(playCompo);
                         Components.Add(resultCompo);
 
+                        playCompo = new PlayComponent(this);
                         mode = GameMode.Result;
                         break;
                     }
                     break;
 
                 case GameMode.Result:
+                    if (resultCompo.IsEnded())
+                    {
+                        Components.Remove(resultCompo);
+                        Components.Add(menuCompo);
 
+                        resultCompo = new ResultComponent(this);
+                        mode = GameMode.Menu;
+                    }
                     break;
 
             }
