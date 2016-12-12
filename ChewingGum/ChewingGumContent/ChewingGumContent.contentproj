@@ -48,6 +48,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="res\img\guide.png">
+      <Name>guide</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="res\img\MenuItem\exit_select.png">
       <Name>exit_select</Name>
       <Importer>TextureImporter</Importer>
@@ -85,11 +90,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="res\img\guide.png">
-      <Name>guide</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="res\img\menu.jpg">
       <Name>menu</Name>
       <Importer>TextureImporter</Importer>
