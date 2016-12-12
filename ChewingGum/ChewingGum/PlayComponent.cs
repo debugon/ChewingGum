@@ -82,7 +82,6 @@ namespace ChewingGum
             if(InputManager.IsJustKeyDown(Keys.Enter) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.A))
             {
                 isEnded = true;
-
             }
 
             InputManager.Update();

@@ -41,8 +41,8 @@
       <Importer>XactImporter</Importer>
       <Processor>XactProcessor</Processor>
     </Compile>
-    <Compile Include="SpriteFont1.spritefont">
-      <Name>SpriteFont1</Name>
+    <Compile Include="memoFont.spritefont">
+      <Name>memoFont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>

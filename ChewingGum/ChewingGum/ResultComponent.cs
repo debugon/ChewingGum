@@ -22,7 +22,13 @@ namespace ChewingGum
         /// グラフィック
         /// </summary>
         private SpriteBatch spriteBatch;
-            
+
+        /// <summary>
+        /// フォント
+        /// </summary>
+        private SpriteFont font;
+        private const int fontSize = 64;
+
         #endregion
 
         public ResultComponent(Game game)
@@ -55,6 +61,7 @@ namespace ChewingGum
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            font = Game.Content.Load<SpriteFont>(@"memoFont");
 
         }
 
@@ -89,6 +96,11 @@ namespace ChewingGum
             // TODO: Add your drawing code here
             Console.WriteLine("!!! Show Result !!!");
 
+            spriteBatch.Begin();
+            spriteBatch.DrawString(font, "Congratulation!", Vector2.Zero, Color.White);
+            spriteBatch.DrawString(font, "GmaeTime:", new Vector2(fontSize, fontSize + 10), Color.White);
+            
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
