@@ -29,7 +29,6 @@ namespace ChewingGum
         private SpriteFont font;
         private const int fontSize = 64;
 
-
         private bool isEnded = false;
         #endregion
 
