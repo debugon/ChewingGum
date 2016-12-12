@@ -22,7 +22,11 @@ namespace ChewingGum
         /// <summary>
         /// グラフィック
         /// </summary>
-        SpriteBatch spriteBatch;
+        private SpriteBatch spriteBatch;
+        private SpriteFont font;
+
+        private TimeSpan startTime;
+        private TimeSpan playTime;
 
         /// <summary>
         /// 終了フラグ
@@ -60,7 +64,7 @@ namespace ChewingGum
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            
+            font = Game.Content.Load<SpriteFont>(@"memoFont");
         }
 
         /// <summary>
@@ -79,6 +83,8 @@ namespace ChewingGum
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
+            playTime = gameTime.TotalGameTime - startTime;
+
             if(InputManager.IsJustKeyDown(Keys.Enter) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.A))
             {
                 isEnded = true;
@@ -100,6 +106,11 @@ namespace ChewingGum
             // TODO: Add your drawing code here
             Console.WriteLine("!!! Play Now !!!");
 
+            spriteBatch.Begin();
+            spriteBatch.DrawString(font, "GameTime:" + Math.Floor(playTime.TotalSeconds) + "sec", Vector2.Zero, Color.White);
+
+            spriteBatch.End();
+
             base.Draw(gameTime);
         }
 
@@ -107,5 +118,7 @@ namespace ChewingGum
         {
             return isEnded;
         }
+
+        public TimeSpan PlayTime { get { return playTime; } set { startTime = value; } }
     }
 }

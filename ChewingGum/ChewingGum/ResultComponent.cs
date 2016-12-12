@@ -29,6 +29,8 @@ namespace ChewingGum
         private SpriteFont font;
         private const int fontSize = 64;
 
+        private TimeSpan playTime;
+
         private bool isEnded = false;
         #endregion
 
@@ -106,7 +108,7 @@ namespace ChewingGum
 
             spriteBatch.Begin();
             spriteBatch.DrawString(font, "Congratulation!", Vector2.Zero, Color.White);
-            spriteBatch.DrawString(font, "GameTime:", new Vector2(fontSize, fontSize + 10), Color.White);
+            spriteBatch.DrawString(font, "GameTime:" + Math.Floor(playTime.TotalSeconds) + "sec", new Vector2(fontSize, fontSize + 10), Color.White);
             
             spriteBatch.End();
             base.Draw(gameTime);
@@ -116,5 +118,8 @@ namespace ChewingGum
         {
             return isEnded;
         }
+
+        public TimeSpan PlayTime { set { playTime = value; } }
+
     }
 }

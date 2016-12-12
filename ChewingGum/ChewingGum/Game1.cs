@@ -46,6 +46,11 @@ namespace ChewingGum
         }
 
         GameMode mode;
+
+        /// <summary>
+        /// ゲームプレイ時間
+        /// </summary>
+        private TimeSpan menuSelectingTime;
             
         #endregion
 
@@ -132,6 +137,8 @@ namespace ChewingGum
                                 Components.Remove(menuCompo);
                                 Components.Add(playCompo);
 
+                                //プレイ開始までのプレイ時間を格納
+                                playCompo.PlayTime = gameTime.TotalGameTime;
                                 mode = GameMode.Play;
                                 break;
 
@@ -168,6 +175,8 @@ namespace ChewingGum
                         Components.Remove(playCompo);
                         Components.Add(resultCompo);
 
+                        //playCompoで使用したプレイ時間を渡す
+                        resultCompo.PlayTime = playCompo.PlayTime;
                         playCompo = new PlayComponent(this);
                         mode = GameMode.Result;
                         break;
@@ -203,7 +212,6 @@ namespace ChewingGum
 
             base.Draw(gameTime);
         }
-
     }
 }
 
