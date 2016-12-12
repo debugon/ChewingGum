@@ -48,42 +48,40 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="res\img\MenuItem\exit_select.png">
+      <Name>exit_select</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="res\img\MenuItem\exit_unselect.png">
+      <Name>exit_unselect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="res\img\MenuItem\hint_select.png">
+      <Name>hint_select</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="res\img\MenuItem\hint_unselect.png">
+      <Name>hint_unselect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="res\img\MenuItem\start_select.png">
+      <Name>start_select</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="res\img\MenuItem\start_unselect.png">
+      <Name>start_unselect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="test.wmv">
       <Name>test</Name>
       <Importer>WmvImporter</Importer>
       <Processor>VideoProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="res\img\MenuItem\exit_white.png">
-      <Name>exit_white</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="res\img\MenuItem\exit_yellow.png">
-      <Name>exit_yellow</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="res\img\MenuItem\option_white.png">
-      <Name>option_white</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="res\img\MenuItem\option_yellow.png">
-      <Name>option_yellow</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="res\img\MenuItem\start_white.png">
-      <Name>start_white</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="res\img\MenuItem\start_yellow.png">
-      <Name>start_yellow</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>

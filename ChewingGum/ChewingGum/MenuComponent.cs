@@ -33,21 +33,21 @@ namespace ChewingGum
         /// アイテムテクスチャ：非選択状態
         /// </summary>
         private Texture2D menuStartTexture;
-        private Texture2D menuOptionTexture;
+        private Texture2D menuHintTexture;
         private Texture2D menuExitTexture;
 
         /// <summary>
         /// アイテムテクスチャ：選択状態
         /// </summary>
         private Texture2D menuStartSelectedTexture;
-        private Texture2D menuOptionSelectedTexture;
+        private Texture2D menuHintSelectedTexture;
         private Texture2D menuExitSelectedTexture;
 
         /// <summary>
         /// アイテムポジション
         /// </summary>
         private Vector2 menuStartPosition;
-        private Vector2 menuOptionPosition;
+        private Vector2 menuHintPosition;
         private Vector2 menuExitPosition;
         
         /// <summary>
@@ -110,7 +110,7 @@ namespace ChewingGum
         private void InitializePosition()
         {
             menuStartPosition = new Vector2(360.0f, 450.0f);
-            menuOptionPosition = new Vector2(360.0f, 500.0f);
+            menuHintPosition = new Vector2(360.0f, 500.0f);
             menuExitPosition = new Vector2(360.0f, 550.0f);
         }
 
@@ -136,13 +136,13 @@ namespace ChewingGum
             menuTexture = Game.Content.Load<Texture2D>(@"res\img\menu");
                                     
             //メニューアイテム
-            menuStartTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\start_white");
-            menuOptionTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\option_white");
-            menuExitTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\exit_white");
+            menuStartTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\start_unselect");
+            menuHintTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\hint_unselect");
+            menuExitTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\exit_unselect");
 
-            menuStartSelectedTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\start_yellow");
-            menuOptionSelectedTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\option_yellow");
-            menuExitSelectedTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\exit_yellow");
+            menuStartSelectedTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\start_select");
+            menuHintSelectedTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\hint_select");
+            menuExitSelectedTexture = Game.Content.Load<Texture2D>(@"res\img\MenuItem\exit_select");
         }
 
         private void LoadVideo()
@@ -260,19 +260,19 @@ namespace ChewingGum
             {
                 case Menu.Start:
                     spriteBatch.Draw(menuStartSelectedTexture, menuStartPosition, Color.White);
-                    spriteBatch.Draw(menuOptionTexture, menuOptionPosition, Color.White);
+                    spriteBatch.Draw(menuHintTexture, menuHintPosition, Color.White);
                     spriteBatch.Draw(menuExitTexture, menuExitPosition, Color.White);
                     break;
 
                 case Menu.Guide:
                     spriteBatch.Draw(menuStartTexture, menuStartPosition, Color.White);
-                    spriteBatch.Draw(menuOptionSelectedTexture, menuOptionPosition, Color.White);
+                    spriteBatch.Draw(menuHintSelectedTexture, menuHintPosition, Color.White);
                     spriteBatch.Draw(menuExitTexture, menuExitPosition, Color.White);
                     break;
 
                 case Menu.Exit:
                     spriteBatch.Draw(menuStartTexture, menuStartPosition, Color.White);
-                    spriteBatch.Draw(menuOptionTexture, menuOptionPosition, Color.White);
+                    spriteBatch.Draw(menuHintTexture, menuHintPosition, Color.White);
                     spriteBatch.Draw(menuExitSelectedTexture, menuExitPosition, Color.White);
                     break;
             }
