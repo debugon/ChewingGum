@@ -102,6 +102,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="res\img\InterfaceItem\" />
     <Folder Include="res\model\" />
   </ItemGroup>
   <ItemGroup>
