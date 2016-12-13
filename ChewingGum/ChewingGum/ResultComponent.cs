@@ -29,6 +29,8 @@ namespace ChewingGum
         private SpriteFont font;
         private const int fontSize = 64;
 
+        private Texture2D resultTexture;
+
         private TimeSpan playTime;
 
         private bool isEnded = false;
@@ -65,6 +67,7 @@ namespace ChewingGum
 
             // TODO: use this.Content to load your game content here
             font = Game.Content.Load<SpriteFont>(@"memoFont");
+            resultTexture = Game.Content.Load<Texture2D>(@"res\img\result");
             
         }
 
@@ -107,8 +110,10 @@ namespace ChewingGum
             Console.WriteLine("!!! Show Result !!!");
 
             spriteBatch.Begin();
-            spriteBatch.DrawString(font, "Congratulation!", Vector2.Zero, Color.White);
-            spriteBatch.DrawString(font, "GameTime:" + Math.Floor(playTime.TotalSeconds) + "sec", new Vector2(fontSize, fontSize + 10), Color.White);
+            spriteBatch.Draw(resultTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
+
+            //spriteBatch.DrawString(font, "Congratulation!", Vector2.Zero, Color.White);
+            spriteBatch.DrawString(font, Math.Floor(playTime.TotalSeconds) + "sec", new Vector2(GraphicsDevice.Viewport.Width / 2,  GraphicsDevice.Viewport.Height / 2 + 90), Color.White);
             
             spriteBatch.End();
             base.Draw(gameTime);
