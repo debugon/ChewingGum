@@ -104,7 +104,7 @@ namespace ChewingGum
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            Console.WriteLine("!!! Play Now !!!");
+            //Console.WriteLine("!!! Play Now !!!");
 
             spriteBatch.Begin();
             spriteBatch.DrawString(font, "GameTime:" + Math.Floor(playTime.TotalSeconds) + "sec", Vector2.Zero, Color.White);

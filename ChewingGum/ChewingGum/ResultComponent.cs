@@ -107,7 +107,7 @@ namespace ChewingGum
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            Console.WriteLine("!!! Show Result !!!");
+            //Console.WriteLine("!!! Show Result !!!");
 
             spriteBatch.Begin();
             spriteBatch.Draw(resultTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
