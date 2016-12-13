@@ -22,6 +22,16 @@ namespace ChewingGum
 
         #endregion
 
+        public static void Update()
+        {
+
+        }
+
+        public static void Draw()
+        {
+            
+        }
+
 
     }
 }
