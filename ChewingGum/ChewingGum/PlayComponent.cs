@@ -25,13 +25,24 @@ namespace ChewingGum
         private SpriteBatch spriteBatch;
         private SpriteFont font;
 
+        /// <summary>
+        /// プレイタイム
+        /// </summary>
         private TimeSpan startTime;
         private TimeSpan playTime;
+
+        /// <summary>
+        /// プレイヤー
+        /// </summary>
+        private const int maxLife = 3;
+        private int playerLife = 3;
 
         /// <summary>
         /// 終了フラグ
         /// </summary>
         private bool isEnded = false;
+
+        private UserInterface interfaceCompo;
 
         #endregion
 
@@ -39,6 +50,7 @@ namespace ChewingGum
             : base(game)
         {
             // TODO: Construct any child components here
+            interfaceCompo = new UserInterface(game);
         }
 
         /// <summary>
@@ -48,9 +60,10 @@ namespace ChewingGum
         public override void Initialize()
         {
             // TODO: Add your initialization code here
+
             //InputManager初期化
             InputManager.Initialize();
-
+            
             base.Initialize();
         }
 
@@ -65,6 +78,8 @@ namespace ChewingGum
 
             // TODO: use this.Content to load your game content here
             font = Game.Content.Load<SpriteFont>(@"memoFont");
+
+            base.LoadContent();
         }
 
         /// <summary>
@@ -74,6 +89,8 @@ namespace ChewingGum
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+
+            base.UnloadContent();
         }
 
         /// <summary>
@@ -88,6 +105,17 @@ namespace ChewingGum
             if(InputManager.IsJustKeyDown(Keys.Enter) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.A))
             {
                 isEnded = true;
+                Game.Components.Remove(interfaceCompo);
+            }
+
+            if (InputManager.IsJustKeyDown(Keys.Up) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.LeftThumbstickUp))
+            {
+                PlayerLife++;
+            }
+
+            if (InputManager.IsJustKeyDown(Keys.Down) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.LeftThumbstickDown))
+            {
+                PlayerLife--;
             }
 
             InputManager.Update();
@@ -101,12 +129,13 @@ namespace ChewingGum
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
             //Console.WriteLine("!!! Play Now !!!");
 
             spriteBatch.Begin();
+
             spriteBatch.DrawString(font, "GameTime:" + Math.Floor(playTime.TotalSeconds) + "sec", Vector2.Zero, Color.White);
 
             spriteBatch.End();
@@ -120,5 +149,18 @@ namespace ChewingGum
         }
 
         public TimeSpan PlayTime { get { return playTime; } set { startTime = value; } }
+
+        public int PlayerLife
+        {
+            get
+            {
+                return playerLife;
+            }
+            set
+            {
+                if (playerLife + value <= maxLife)
+                    playerLife += value;
+            }
+        }
     }
 }

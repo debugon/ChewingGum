@@ -69,7 +69,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="AudioManager.cs" />
     <Compile Include="ResultComponent.cs" />
-    <Compile Include="UIManager.cs" />
+    <Compile Include="UserInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

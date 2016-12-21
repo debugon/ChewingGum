@@ -102,12 +102,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="res\img\InterfaceItem\" />
     <Folder Include="res\model\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="res\img\result.png">
       <Name>result</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="res\img\InterfaceItem\life.png">
+      <Name>life</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

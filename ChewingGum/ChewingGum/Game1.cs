@@ -135,6 +135,9 @@ namespace ChewingGum
                         {
                             case MenuComponent.Menu.Start:
                                 Components.Remove(menuCompo);
+
+                                //PlayComponentを初期化
+                                playCompo = new PlayComponent(this);
                                 Components.Add(playCompo);
 
                                 //プレイ開始までのプレイ時間を格納
@@ -144,6 +147,8 @@ namespace ChewingGum
 
                             case MenuComponent.Menu.Guide:
                                 Components.Remove(menuCompo);
+
+                                guideCompo = new GuideComponent(this);
                                 Components.Add(guideCompo);
 
                                 mode = GameMode.Guide;
@@ -162,8 +167,6 @@ namespace ChewingGum
                         Components.Remove(guideCompo);
                         Components.Add(menuCompo);
 
-                        //再初期化
-                        guideCompo = new GuideComponent(this);
                         mode = GameMode.Menu;
                         break;
                     }
@@ -173,11 +176,12 @@ namespace ChewingGum
                     if (playCompo.IsEnded())
                     {
                         Components.Remove(playCompo);
+
+                        resultCompo = new ResultComponent(this);
                         Components.Add(resultCompo);
 
                         //playCompoで使用したプレイ時間を渡す
                         resultCompo.PlayTime = playCompo.PlayTime;
-                        playCompo = new PlayComponent(this);
                         mode = GameMode.Result;
                         break;
                     }
@@ -189,7 +193,6 @@ namespace ChewingGum
                         Components.Remove(resultCompo);
                         Components.Add(menuCompo);
 
-                        resultCompo = new ResultComponent(this);
                         mode = GameMode.Menu;
                     }
                     break;

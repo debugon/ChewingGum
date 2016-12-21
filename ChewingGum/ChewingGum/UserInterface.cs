@@ -15,31 +15,26 @@ namespace ChewingGum
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class ResultComponent : Microsoft.Xna.Framework.DrawableGameComponent
+    public class UserInterface : Microsoft.Xna.Framework.DrawableGameComponent
     {
-        #region フィールド
+
+        #region
         /// <summary>
         /// グラフィック
         /// </summary>
         private SpriteBatch spriteBatch;
 
-        /// <summary>
-        /// フォント
-        /// </summary>
-        private SpriteFont font;
-        private const int fontSize = 64;
-
-        private Texture2D resultTexture;
-
-        private TimeSpan playTime;
-
-        private bool isEnded = false;
+        private Texture2D lifeTexture;
+        
         #endregion
 
-        public ResultComponent(Game game)
+        public UserInterface(Game game)
             : base(game)
         {
             // TODO: Construct any child components here
+            game.Components.Add(this);
+            lifeTexture = game.Content.Load<Texture2D>(@"res\img\InterfaceItem\life");
+            
         }
 
         /// <summary>
@@ -49,9 +44,6 @@ namespace ChewingGum
         public override void Initialize()
         {
             // TODO: Add your initialization code here
-
-            //InputManager初期化
-            InputManager.Initialize();
 
             base.Initialize();
         }
@@ -66,11 +58,9 @@ namespace ChewingGum
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            font = Game.Content.Load<SpriteFont>(@"memoFont");
-            resultTexture = Game.Content.Load<Texture2D>(@"res\img\result");
 
             base.LoadContent();
-            
+
         }
 
         /// <summary>
@@ -91,14 +81,7 @@ namespace ChewingGum
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
-
-            if(InputManager.IsJustKeyDown(Keys.Enter) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.B))
-            {
-                isEnded = true;
-            }
-
-            InputManager.Update();
-
+            
             base.Update(gameTime);
         }
 
@@ -108,28 +91,16 @@ namespace ChewingGum
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            //Console.WriteLine("!!! Show Result !!!");
-
             spriteBatch.Begin();
-            spriteBatch.Draw(resultTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
 
-            //spriteBatch.DrawString(font, "Congratulation!", Vector2.Zero, Color.White);
-            spriteBatch.DrawString(font, Math.Floor(playTime.TotalSeconds) + "sec", new Vector2(GraphicsDevice.Viewport.Width / 2,  GraphicsDevice.Viewport.Height / 2 + 90), Color.White);
-            
+            spriteBatch.Draw(lifeTexture, new Vector2(100, 200), Color.White);
+
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
-
-        public bool IsEnded()
-        {
-            return isEnded;
-        }
-
-        public TimeSpan PlayTime { set { playTime = value; } }
-
     }
 }
