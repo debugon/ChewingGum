@@ -42,7 +42,7 @@ namespace ChewingGum
         /// </summary>
         private bool isEnded = false;
 
-        private UserInterface interfaceCompo;
+        private InterfaceComponent interfaceCompo;
 
         #endregion
 
@@ -50,7 +50,7 @@ namespace ChewingGum
             : base(game)
         {
             // TODO: Construct any child components here
-            interfaceCompo = new UserInterface(game);
+            interfaceCompo = new InterfaceComponent(game);
         }
 
         /// <summary>

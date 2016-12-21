@@ -15,7 +15,7 @@ namespace ChewingGum
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class UserInterface : Microsoft.Xna.Framework.DrawableGameComponent
+    public class InterfaceComponent : Microsoft.Xna.Framework.DrawableGameComponent
     {
 
         #region
@@ -28,7 +28,7 @@ namespace ChewingGum
         
         #endregion
 
-        public UserInterface(Game game)
+        public InterfaceComponent(Game game)
             : base(game)
         {
             // TODO: Construct any child components here
