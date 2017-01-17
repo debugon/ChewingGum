@@ -16,8 +16,8 @@ Global Settings
     Header File = C:\Users\Toshinori\OneDrive\Projects\ChewingGum\Audio\Audio.h;
     Exclude Category Names = 0;
     Exclude Variable Names = 0;
-    Last Modified Low = 30560125;
-    Last Modified High = 4260505764;
+    Last Modified Low = 156256602;
+    Last Modified High = 30568599;
 
     Category
     {
@@ -227,10 +227,8 @@ Wave Bank
     Compression Preset Name = <none>;
     Xbox Bank Last Modified Low = 0;
     Xbox Bank Last Modified High = 0;
-    PC Bank Last Modified Low = 3233682688;
-    PC Bank Last Modified High = 30560144;
-    Header Last Modified Low = 0;
-    Header Last Modified High = 0;
+    PC Bank Last Modified Low = 156611848;
+    PC Bank Last Modified High = 30568599;
     Bank Last Revised Low = 2891916380;
     Bank Last Revised High = 30560144;
 
@@ -252,8 +250,8 @@ Wave Bank
             Loop Region Offset = 0;
             Loop Region Length = 0;
             File Type = 1;
-            Last Modified Low = 40352984;
-            Last Modified High = 30559958;
+            Last Modified Low = 1505181914;
+            Last Modified High = 30561370;
         }
     }
 
@@ -275,8 +273,8 @@ Wave Bank
             Loop Region Offset = 0;
             Loop Region Length = 0;
             File Type = 1;
-            Last Modified Low = 36516340;
-            Last Modified High = 30559957;
+            Last Modified Low = 1505251962;
+            Last Modified High = 30561370;
         }
     }
 
@@ -298,8 +296,8 @@ Wave Bank
             Loop Region Offset = 0;
             Loop Region Length = 0;
             File Type = 1;
-            Last Modified Low = 1717274477;
-            Last Modified High = 30560144;
+            Last Modified Low = 1505322017;
+            Last Modified High = 30561370;
         }
     }
 }
@@ -313,8 +311,150 @@ Wave Bank
     Windows Bank Path Edited = 0;
     Seek Tables = 1;
     Compression Preset Name = <none>;
-    Bank Last Revised Low = 797699992;
-    Bank Last Revised High = 30560155;
+    Xbox Bank Last Modified Low = 0;
+    Xbox Bank Last Modified High = 0;
+    PC Bank Last Modified Low = 156712009;
+    PC Bank Last Modified High = 30568599;
+    Bank Last Revised Low = 2228312808;
+    Bank Last Revised High = 30568598;
+
+    Wave
+    {
+        Name = BGM1;
+        File = bgm\BGM1.wav;
+        Build Settings Last Modified Low = 1565400631;
+        Build Settings Last Modified High = 30568598;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 11787264;
+            Loop Region Offset = 1409024;
+            Loop Region Length = 5677060;
+            File Type = 1;
+            Last Modified Low = 1038026086;
+            Last Modified High = 30568594;
+        }
+    }
+
+    Wave
+    {
+        Name = BGM2;
+        File = bgm\BGM2.wav;
+        Build Settings Last Modified Low = 1565405637;
+        Build Settings Last Modified High = 30568598;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 10202112;
+            Loop Region Offset = 2465792;
+            Loop Region Length = 7356420;
+            File Type = 1;
+            Last Modified Low = 2753264071;
+            Last Modified High = 30568594;
+        }
+    }
+
+    Wave
+    {
+        Name = BGM3;
+        File = bgm\BGM3.wav;
+        Build Settings Last Modified Low = 1565405637;
+        Build Settings Last Modified High = 30568598;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 11971584;
+            Loop Region Offset = 8617984;
+            Loop Region Length = 2875396;
+            File Type = 1;
+            Last Modified Low = 2708685627;
+            Last Modified High = 30568595;
+        }
+    }
+
+    Wave
+    {
+        Name = BGM4;
+        File = bgm\BGM4.wav;
+        Build Settings Last Modified Low = 1565410640;
+        Build Settings Last Modified High = 30568598;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 6981120;
+            Loop Region Offset = 663552;
+            Loop Region Length = 5627908;
+            File Type = 1;
+            Last Modified Low = 4288697261;
+            Last Modified High = 30568595;
+        }
+    }
+
+    Wave
+    {
+        Name = ResultThema;
+        File = bgm\ResultThema.wav;
+        Build Settings Last Modified Low = 1565410640;
+        Build Settings Last Modified High = 30568598;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 10603008;
+            Loop Region Offset = 2392064;
+            Loop Region Length = 7634948;
+            File Type = 1;
+            Last Modified Low = 3615539705;
+            Last Modified High = 30568597;
+        }
+    }
+
+    Wave
+    {
+        Name = TitleThema;
+        File = bgm\TitleThema.wav;
+        Build Settings Last Modified Low = 1565415642;
+        Build Settings Last Modified High = 30568598;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 11787264;
+            Loop Region Offset = 4308992;
+            Loop Region Length = 5783556;
+            File Type = 1;
+            Last Modified Low = 1233814109;
+            Last Modified High = 30568598;
+        }
+    }
 }
 
 Sound Bank
@@ -324,6 +464,8 @@ Sound Bank
     Windows File = Win\SoundEffectBank.xsb;
     Xbox Bank Path Edited = 0;
     Windows Bank Path Edited = 0;
+    Bank Last Modified Low = 157462735;
+    Bank Last Modified High = 30568599;
     Header Last Modified High = 0;
     Header Last Modified Low = 0;
 
@@ -536,4 +678,416 @@ Sound Bank
     Windows File = Win\BackgroundMusicBank.xsb;
     Xbox Bank Path Edited = 0;
     Windows Bank Path Edited = 0;
+    Bank Last Modified Low = 407588377;
+    Bank Last Modified High = 30568601;
+    Header Last Modified High = 0;
+    Header Last Modified Low = 0;
+
+    Sound
+    {
+        Name = TitleThema;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = BackgroundMusicWave;
+                    Bank Index = 1;
+                    Entry Name = TitleThema;
+                    Entry Index = 5;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = BGM4;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = BackgroundMusicWave;
+                    Bank Index = 1;
+                    Entry Name = BGM4;
+                    Entry Index = 3;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = ResultThema;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = BackgroundMusicWave;
+                    Bank Index = 1;
+                    Entry Name = ResultThema;
+                    Entry Index = 4;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = BGM3;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = BackgroundMusicWave;
+                    Bank Index = 1;
+                    Entry Name = BGM3;
+                    Entry Index = 2;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = BGM2;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = BackgroundMusicWave;
+                    Bank Index = 1;
+                    Entry Name = BGM2;
+                    Entry Index = 1;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Sound
+    {
+        Name = BGM1;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+            Use Filter = 0;
+
+            Play Wave Event
+            {
+                Loop Count = 255;
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaker Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = BackgroundMusicWave;
+                    Bank Index = 1;
+                    Entry Name = BGM1;
+                    Entry Index = 0;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
+    Cue
+    {
+        Name = BGM1;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = BGM1;
+            Index = 5;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = BGM2;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = BGM2;
+            Index = 4;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = BGM3;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = BGM3;
+            Index = 3;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = ResultThema;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = ResultThema;
+            Index = 2;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = BGM4;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = BGM4;
+            Index = 1;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = TitleThema;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = TitleThema;
+            Index = 0;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
 }

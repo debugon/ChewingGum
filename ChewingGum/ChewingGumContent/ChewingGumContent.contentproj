@@ -36,11 +36,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="res\audio\Audio.xap">
-      <Name>Audio</Name>
-      <Importer>XactImporter</Importer>
-      <Processor>XactProcessor</Processor>
-    </Compile>
     <Compile Include="memoFont.spritefont">
       <Name>memoFont</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -48,6 +43,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="res\audio\Audio.xap">
+      <Name>Audio</Name>
+      <Importer>XactImporter</Importer>
+      <Processor>XactProcessor</Processor>
+    </Compile>
     <Compile Include="res\img\guide.png">
       <Name>guide</Name>
       <Importer>TextureImporter</Importer>

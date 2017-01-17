@@ -73,15 +73,9 @@ namespace ChewingGum
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
-            //AudioManager初期化
-            //AudioManager.Initialize();
-
-            //Component初期化
+            
+            //menuComponent初期化
             menuCompo = new MenuComponent(this);
-            playCompo = new PlayComponent(this);
-            guideCompo = new GuideComponent(this);
-            resultCompo = new ResultComponent(this);
 
             mode = GameMode.Menu;
 
@@ -215,6 +209,8 @@ namespace ChewingGum
 
             base.Draw(gameTime);
         }
+
+        public TimeSpan PlayTime { get { return playCompo.PlayTime; } }
     }
 }
 

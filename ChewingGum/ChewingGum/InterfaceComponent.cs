@@ -97,7 +97,7 @@ namespace ChewingGum
             spriteBatch.Begin();
 
             spriteBatch.Draw(lifeTexture, new Vector2(100, 200), Color.White);
-
+            
             spriteBatch.End();
 
             base.Draw(gameTime);
