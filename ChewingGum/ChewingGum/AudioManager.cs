@@ -6,21 +6,22 @@ namespace ChewingGum
     {
         #region フィールド
         /// <summary>
-        /// 再生用オーディオエンジン
+        /// オーディオ
         /// </summary>
-        private static AudioEngine audioEngine;
+        private AudioEngine audioEngine;
+        private Cue cue;
 
         /// <summary>
         /// サウンドエフェクト
         /// </summary>
-        private static WaveBank soundEffectWave;
-        private static SoundBank soundEffectBank;
+        private WaveBank soundEffectWave;
+        private SoundBank soundEffectBank;
 
         /// <summary>
         /// ＢＧＭ
         /// </summary>
-        private static WaveBank backgroundMusicWave;
-        private static SoundBank backgroundMusicBank;
+        private WaveBank backgroundMusicWave;
+        private SoundBank backgroundMusicBank;
 
         public enum Sound
         {
@@ -44,14 +45,7 @@ namespace ChewingGum
         public AudioManager()
         {
             //コンストラクタ
-        }
 
-        #region 初期化
-        /// <summary>
-        /// 初期化
-        /// </summary>
-        public static void Initialize()
-        {
             //LoadContentではないので相対パスで指定してあげる必要がある
             audioEngine = new AudioEngine(@"Content\res\audio\Audio.xgs");
 
@@ -61,31 +55,41 @@ namespace ChewingGum
             backgroundMusicWave = new WaveBank(audioEngine, @"Content\res\audio\BackgroundMusicWave.xwb");
             backgroundMusicBank = new SoundBank(audioEngine, @"Content\res\audio\BackgroundMusicBank.xsb");
         }
+
+        #region 初期化
+        /// <summary>
+        /// 初期化
+        /// </summary>
+        public static void Initialize()
+        {
+            
+        }
         #endregion
 
-        public static void SoundItem(Sound soundName)
+        public void SoundItem(Sound soundName)
         {
-            Cue cue = soundEffectBank.GetCue(soundName.ToString());
+            cue = soundEffectBank.GetCue(soundName.ToString());
             cue.Play();
         }
 
-        public static void SoundItem(string soundName)
+        public void SoundItem(string soundName)
         {
-            Cue cue = soundEffectBank.GetCue(soundName);
+            cue = soundEffectBank.GetCue(soundName);
             cue.Play();
         }
 
-        public static void SoundBackgroundMusic(BackgroundMusic bgmName)
+        public void SoundBackgroundMusic(BackgroundMusic bgmName)
         {
-            Cue cue = backgroundMusicBank.GetCue(bgmName.ToString());
+            cue = backgroundMusicBank.GetCue(bgmName.ToString());
             cue.Play();
         }
 
-        public static void SoundBackgroundMusic(string bgmName)
+        public void SoundBackgroundMusic(string bgmName)
         {
-            Cue cue = backgroundMusicBank.GetCue(bgmName);
+            cue = backgroundMusicBank.GetCue(bgmName);
             cue.Play();
         }
 
+        public Cue GetCue { get { return cue; } }
     }
 }

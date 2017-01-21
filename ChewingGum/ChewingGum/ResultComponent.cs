@@ -23,6 +23,8 @@ namespace ChewingGum
         /// </summary>
         private SpriteBatch spriteBatch;
 
+        private AudioManager audio;
+
         /// <summary>
         /// ƒtƒHƒ“ƒg
         /// </summary>
@@ -40,6 +42,7 @@ namespace ChewingGum
             : base(game)
         {
             // TODO: Construct any child components here
+            audio = new AudioManager();
         }
 
         /// <summary>
@@ -68,7 +71,7 @@ namespace ChewingGum
             // TODO: use this.Content to load your game content here
             font = Game.Content.Load<SpriteFont>(@"memoFont");
             resultTexture = Game.Content.Load<Texture2D>(@"res\img\result");
-
+            audio.SoundBackgroundMusic("ResultThema");
             base.LoadContent();
             
         }
@@ -95,6 +98,7 @@ namespace ChewingGum
             if(InputManager.IsJustKeyDown(Keys.Enter) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.B))
             {
                 isEnded = true;
+                audio.GetCue.Stop(AudioStopOptions.AsAuthored);
             }
 
             InputManager.Update();

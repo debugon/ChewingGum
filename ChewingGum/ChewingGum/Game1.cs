@@ -46,11 +46,6 @@ namespace ChewingGum
         }
 
         GameMode mode;
-
-        /// <summary>
-        /// ゲームプレイ時間
-        /// </summary>
-        private TimeSpan menuSelectingTime;
             
         #endregion
 
@@ -73,7 +68,7 @@ namespace ChewingGum
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            
+
             //menuComponent初期化
             menuCompo = new MenuComponent(this);
 
@@ -123,13 +118,14 @@ namespace ChewingGum
             switch (mode)
             {
                 case GameMode.Menu:
+                    
                     if (menuCompo.IsSelected())
                     {
                         switch (menuCompo.selectedMenu)
                         {
                             case MenuComponent.Menu.Start:
                                 Components.Remove(menuCompo);
-
+                                
                                 //PlayComponentを初期化
                                 playCompo = new PlayComponent(this);
                                 Components.Add(playCompo);

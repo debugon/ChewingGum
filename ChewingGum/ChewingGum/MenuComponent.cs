@@ -24,6 +24,11 @@ namespace ChewingGum
         private SpriteBatch spriteBatch;
 
         /// <summary>
+        /// オーディオ
+        /// </summary>
+        private AudioManager audio;
+
+        /// <summary>
         /// テクスチャ
         /// </summary>
         private Texture2D titleTexture;
@@ -85,6 +90,7 @@ namespace ChewingGum
             : base(game)
         {
             // TODO: Construct any child components here
+            audio = new AudioManager();
         }
 
         /// <summary>
@@ -97,10 +103,7 @@ namespace ChewingGum
 
             // InputManager初期化
             InputManager.Initialize();
-
-            //AuidoManager初期化
-            AudioManager.Initialize();
-
+            
             //メニューアイテムの座標セット
             InitializePosition();
 
@@ -127,6 +130,9 @@ namespace ChewingGum
             // テクスチャ読み込み
             LoadTexture();
             LoadVideo();
+
+            audio = new AudioManager();
+            audio.SoundBackgroundMusic("TitleThema");            
         }
 
         private void LoadTexture()
@@ -195,7 +201,7 @@ namespace ChewingGum
                 if (Menu.Start < menu)
                 {
                     menu--;
-                    AudioManager.SoundItem(AudioManager.Sound.ItemSelect);
+                    audio.SoundItem(AudioManager.Sound.ItemSelect);
                 }
             }
             else if (InputManager.IsJustKeyDown(Keys.Down) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.LeftThumbstickDown))
@@ -203,7 +209,7 @@ namespace ChewingGum
                 if (menu < Menu.Exit)
                 {
                     menu++;
-                    AudioManager.SoundItem(AudioManager.Sound.ItemSelect);
+                    audio.SoundItem(AudioManager.Sound.ItemSelect);
                 }
             }
             else if (InputManager.IsJustKeyDown(Keys.Enter) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.A))
@@ -213,11 +219,15 @@ namespace ChewingGum
                 switch (menu)
                 {
                     case Menu.Exit:
-                        AudioManager.SoundItem(AudioManager.Sound.ItemCanceled);
+                        audio.SoundItem(AudioManager.Sound.ItemCanceled);
+                        break;
+
+                    case Menu.Start:
+                        audio.GetCue.Stop(AudioStopOptions.AsAuthored);
                         break;
 
                     default:
-                        AudioManager.SoundItem(AudioManager.Sound.ItemSelected);
+                        audio.SoundItem(AudioManager.Sound.ItemSelected);
                         break;
                 }
             }
