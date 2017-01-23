@@ -9,7 +9,7 @@ namespace ChewingGum
         /// オーディオ
         /// </summary>
         private AudioEngine audioEngine;
-        private Cue cue;
+        private Cue bgm;
 
         /// <summary>
         /// サウンドエフェクト
@@ -54,42 +54,42 @@ namespace ChewingGum
 
             backgroundMusicWave = new WaveBank(audioEngine, @"Content\res\audio\BackgroundMusicWave.xwb");
             backgroundMusicBank = new SoundBank(audioEngine, @"Content\res\audio\BackgroundMusicBank.xsb");
-        }
-
-        #region 初期化
-        /// <summary>
-        /// 初期化
-        /// </summary>
-        public static void Initialize()
-        {
             
         }
-        #endregion
-
+        
         public void SoundItem(Sound soundName)
         {
-            cue = soundEffectBank.GetCue(soundName.ToString());
-            cue.Play();
+            Cue se = null;
+
+            se = soundEffectBank.GetCue(soundName.ToString());
+            se.Play();
         }
 
         public void SoundItem(string soundName)
         {
-            cue = soundEffectBank.GetCue(soundName);
-            cue.Play();
+            Cue se = null;
+
+            se = soundEffectBank.GetCue(soundName);
+            se.Play();
         }
 
         public void SoundBackgroundMusic(BackgroundMusic bgmName)
         {
-            cue = backgroundMusicBank.GetCue(bgmName.ToString());
-            cue.Play();
+            bgm = backgroundMusicBank.GetCue(bgmName.ToString());
+            bgm.Play();
         }
 
         public void SoundBackgroundMusic(string bgmName)
         {
-            cue = backgroundMusicBank.GetCue(bgmName);
-            cue.Play();
+            bgm = backgroundMusicBank.GetCue(bgmName);
+            bgm.Play();
         }
 
-        public Cue GetCue { get { return cue; } }
+        public bool StopBGM()
+        {
+            return bgm.IsStopped;
+        }
+
+        public Cue GetCue { get { return bgm; } }
     }
 }

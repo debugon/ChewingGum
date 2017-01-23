@@ -46,6 +46,11 @@ namespace ChewingGum
         }
 
         GameMode mode;
+
+        /// <summary>
+        /// オーディオ
+        /// </summary>
+        AudioManager audio;
             
         #endregion
 
@@ -78,6 +83,9 @@ namespace ChewingGum
             {
                 Components.Add(menuCompo);
             }
+
+            //オーディオを使用するためにインスタンス化
+            audio = new AudioManager();
 
             base.Initialize();
         }
@@ -118,14 +126,19 @@ namespace ChewingGum
             switch (mode)
             {
                 case GameMode.Menu:
-                    
+                    if (audio.GetCue == null || audio.GetCue.IsStopped)
+                        audio.SoundBackgroundMusic(AudioManager.BackgroundMusic.TitleThema);
+
                     if (menuCompo.IsSelected())
                     {
                         switch (menuCompo.selectedMenu)
                         {
                             case MenuComponent.Menu.Start:
+                                //メニュー画面を非表示
                                 Components.Remove(menuCompo);
-                                
+
+                                audio.GetCue.Stop(AudioStopOptions.AsAuthored);
+
                                 //PlayComponentを初期化
                                 playCompo = new PlayComponent(this);
                                 Components.Add(playCompo);
@@ -163,9 +176,14 @@ namespace ChewingGum
                     break;
 
                 case GameMode.Play:
+                    if (audio.GetCue.IsStopped)
+                        audio.SoundBackgroundMusic(AudioManager.BackgroundMusic.BGM1);
+
                     if (playCompo.IsEnded())
                     {
                         Components.Remove(playCompo);
+
+                        audio.GetCue.Stop(AudioStopOptions.AsAuthored);
 
                         resultCompo = new ResultComponent(this);
                         Components.Add(resultCompo);
@@ -178,8 +196,13 @@ namespace ChewingGum
                     break;
 
                 case GameMode.Result:
+                    if (audio.GetCue.IsStopped)
+                        audio.SoundBackgroundMusic(AudioManager.BackgroundMusic.ResultThema);
+
                     if (resultCompo.IsEnded())
                     {
+                        audio.GetCue.Stop(AudioStopOptions.AsAuthored);
+
                         Components.Remove(resultCompo);
                         Components.Add(menuCompo);
 

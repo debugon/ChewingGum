@@ -24,12 +24,7 @@ namespace ChewingGum
         /// </summary>
         private SpriteBatch spriteBatch;
         private SpriteFont font;
-
-        /// <summary>
-        /// オーディオ
-        /// </summary>
-        private AudioManager audio;
-
+        
         /// <summary>
         /// プレイタイム
         /// </summary>
@@ -55,7 +50,6 @@ namespace ChewingGum
             : base(game)
         {
             // TODO: Construct any child components here
-            audio = new AudioManager();
             interfaceCompo = new InterfaceComponent(game);
         }
 
@@ -84,7 +78,6 @@ namespace ChewingGum
 
             // TODO: use this.Content to load your game content here
             font = Game.Content.Load<SpriteFont>(@"memoFont");
-            audio.SoundBackgroundMusic("BGM1");
             base.LoadContent();
         }
 
@@ -111,7 +104,6 @@ namespace ChewingGum
             if(InputManager.IsJustKeyDown(Keys.Enter) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.A))
             {
                 isEnded = true;
-                audio.GetCue.Stop(AudioStopOptions.AsAuthored);
                 Game.Components.Remove(interfaceCompo);
             }
 
