@@ -18,7 +18,7 @@ namespace ChewingGum
     public class InterfaceComponent : Microsoft.Xna.Framework.DrawableGameComponent
     {
 
-        #region
+        #region フィールド
         /// <summary>
         /// グラフィック
         /// </summary>
@@ -31,6 +31,8 @@ namespace ChewingGum
         private TimeSpan playTime;
 
         private Texture2D lifeTexture;
+
+        private ConvertTime convertTime;
         
         #endregion
 
@@ -39,8 +41,9 @@ namespace ChewingGum
         {
             // TODO: Construct any child components here
             game.Components.Add(this);
-            lifeTexture = game.Content.Load<Texture2D>(@"res\img\InterfaceItem\life");
-            
+
+            convertTime = new ConvertTime(game);
+            //lifeTexture = game.Content.Load<Texture2D>(@"res\img\InterfaceItem\life");
         }
 
         /// <summary>
@@ -87,7 +90,8 @@ namespace ChewingGum
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
-            
+            playTime = gameTime.TotalGameTime - startTime;
+
             base.Update(gameTime);
         }
 
@@ -97,28 +101,34 @@ namespace ChewingGum
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.Clear(Color.CornflowerBlue);
+            //TimeSpan型の時間から総時間を秒数で取得
+            //string型に変換して、さらにint型に変換
+            int totalSeconds = Int32.Parse(Math.Floor(playTime.TotalSeconds).ToString());
+
+            //文字数(＝桁数)取得
+            int wordCount = totalSeconds.ToString().Length;
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            spriteBatch.Draw(lifeTexture, new Vector2(100, 200), Color.White);
-            
+            for (int i = 0; i < wordCount; i++)
+            {
+                //n番目の桁の数を抽出し、変換する
+                string s = (totalSeconds % 10).ToString();
+                Texture2D item = convertTime.ToImage(s);
+
+                //桁変更
+                totalSeconds /= 10;
+
+                //画面右上に表示
+                spriteBatch.Draw(item, new Vector2(GraphicsDevice.Viewport.Width - item.Width * (i + 1), 0), Color.White);
+            }
+
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
 
-        public TimeSpan PlayTime
-        {
-            get
-            {
-                return playTime;
-            }
-            set
-            {
-                startTime = value;
-            }
-        }
+        public TimeSpan PlayTime { get { return playTime; } set { startTime = value; } }
     }
 }

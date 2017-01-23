@@ -26,12 +26,6 @@ namespace ChewingGum
         private SpriteFont font;
         
         /// <summary>
-        /// プレイタイム
-        /// </summary>
-        private TimeSpan startTime;
-        private TimeSpan playTime;
-
-        /// <summary>
         /// プレイヤー
         /// </summary>
         private const int maxLife = 3;
@@ -101,7 +95,6 @@ namespace ChewingGum
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
-            playTime = gameTime.TotalGameTime - startTime;
 
             if(InputManager.IsJustKeyDown(Keys.Enter) || InputManager.IsJustButtonDown(PlayerIndex.One, Buttons.A))
             {
@@ -130,22 +123,8 @@ namespace ChewingGum
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Draw(GameTime gameTime)
         {
-            double totalSeconds =  Math.Floor(playTime.TotalSeconds);
-            
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
-
-            //spriteBatch.DrawString(font, "GameTime:" + convertTime.ToImage(Math.Floor(playTime.TotalSeconds).ToString()) + "sec", Vector2.Zero, Color.White);
-
-            for (int i = 0; i < totalSeconds.ToString().Length; i++)
-            {
-                string s = (totalSeconds % 10.0f).ToString();
-                totalSeconds /= 10.0f;
-                spriteBatch.Draw(convertTime.ToImage(s), Vector2.Zero, Color.White);
-            }
-
-            spriteBatch.End();
-
+            
             base.Draw(gameTime);
         }
 
@@ -157,11 +136,10 @@ namespace ChewingGum
         public TimeSpan PlayTime {
             get
             {
-                return playTime;
+                return interfaceCompo.PlayTime;
             }
             set
             {
-                startTime = value;
                 interfaceCompo.PlayTime = value;
             }
         }
