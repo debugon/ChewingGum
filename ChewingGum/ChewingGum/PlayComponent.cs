@@ -43,6 +43,7 @@ namespace ChewingGum
         private bool isEnded = false;
 
         private InterfaceComponent interfaceCompo;
+        private ConvertTime convertTime;
 
         #endregion
 
@@ -51,6 +52,7 @@ namespace ChewingGum
         {
             // TODO: Construct any child components here
             interfaceCompo = new InterfaceComponent(game);
+            convertTime = new ConvertTime(game);
         }
 
         /// <summary>
@@ -63,7 +65,7 @@ namespace ChewingGum
 
             //InputManagerèâä˙âª
             InputManager.Initialize();
-            
+
             base.Initialize();
         }
 
@@ -128,14 +130,19 @@ namespace ChewingGum
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            double totalSeconds =  Math.Floor(playTime.TotalSeconds);
+            
             // TODO: Add your drawing code here
-            //Console.WriteLine("!!! Play Now !!!");
-
             spriteBatch.Begin();
 
-            spriteBatch.DrawString(font, "GameTime:" + Math.Floor(playTime.TotalSeconds) + "sec", Vector2.Zero, Color.White);
+            //spriteBatch.DrawString(font, "GameTime:" + convertTime.ToImage(Math.Floor(playTime.TotalSeconds).ToString()) + "sec", Vector2.Zero, Color.White);
+
+            for (int i = 0; i < totalSeconds.ToString().Length; i++)
+            {
+                string s = (totalSeconds % 10.0f).ToString();
+                totalSeconds /= 10.0f;
+                spriteBatch.Draw(convertTime.ToImage(s), Vector2.Zero, Color.White);
+            }
 
             spriteBatch.End();
 
@@ -147,7 +154,17 @@ namespace ChewingGum
             return isEnded;
         }
 
-        public TimeSpan PlayTime { get { return playTime; } set { startTime = value; } }
+        public TimeSpan PlayTime {
+            get
+            {
+                return playTime;
+            }
+            set
+            {
+                startTime = value;
+                interfaceCompo.PlayTime = value;
+            }
+        }
 
         public int PlayerLife
         {

@@ -24,6 +24,12 @@ namespace ChewingGum
         /// </summary>
         private SpriteBatch spriteBatch;
 
+        /// <summary>
+        /// プレイタイム
+        /// </summary>
+        private TimeSpan startTime;
+        private TimeSpan playTime;
+
         private Texture2D lifeTexture;
         
         #endregion
@@ -101,6 +107,18 @@ namespace ChewingGum
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public TimeSpan PlayTime
+        {
+            get
+            {
+                return playTime;
+            }
+            set
+            {
+                startTime = value;
+            }
         }
     }
 }

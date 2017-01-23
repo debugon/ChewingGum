@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="ConvertTime.cs" />
     <Compile Include="GuideComponent.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="MenuComponent.cs" />
