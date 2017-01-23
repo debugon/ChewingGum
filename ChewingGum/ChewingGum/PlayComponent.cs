@@ -133,16 +133,7 @@ namespace ChewingGum
             return isEnded;
         }
 
-        public TimeSpan PlayTime {
-            get
-            {
-                return interfaceCompo.PlayTime;
-            }
-            set
-            {
-                interfaceCompo.PlayTime = value;
-            }
-        }
+        public TimeSpan PlayTime { get { return interfaceCompo.PlayTime; } set { interfaceCompo.PlayTime = value; } }
 
         public int PlayerLife
         {
@@ -156,5 +147,6 @@ namespace ChewingGum
                     playerLife += value;
             }
         }
+
     }
 }
