@@ -26,7 +26,7 @@ namespace ChewingGum
             }
             
         }
-
+        
         public Texture2D ToImage(string time)
         {
             switch (time)

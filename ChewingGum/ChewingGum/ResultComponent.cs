@@ -33,6 +33,8 @@ namespace ChewingGum
 
         private TimeSpan playTime;
 
+        private ConvertTime convertTime;
+
         private bool isEnded = false;
         #endregion
 
@@ -40,6 +42,7 @@ namespace ChewingGum
             : base(game)
         {
             // TODO: Construct any child components here
+            convertTime = new ConvertTime(game);
         }
 
         /// <summary>
@@ -107,17 +110,39 @@ namespace ChewingGum
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Draw(GameTime gameTime)
         {
+            //TimeSpan型の時間から総時間を秒数で取得
+            //string型に変換して、さらにint型に変換
+            int totalSeconds = Int32.Parse(Math.Floor(playTime.TotalSeconds).ToString());
+
+            //文字数(＝桁数)取得
+            int wordCount = totalSeconds.ToString().Length;
+
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            //Console.WriteLine("!!! Show Result !!!");
 
             spriteBatch.Begin();
+
+            //背景
             spriteBatch.Draw(resultTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
 
+            //スコア（秒数）表示
+            for (int i = 0; i < wordCount; i++)
+            {
+                //n番目の桁の数を抽出し、変換する
+                string s = (totalSeconds % 10).ToString();
+                Texture2D item = convertTime.ToImage(s);
+
+                //桁変更
+                totalSeconds /= 10;
+
+                //画面中央に表示
+                spriteBatch.Draw(item, new Vector2(GraphicsDevice.Viewport.Width / 2 - item.Width * i, GraphicsDevice.Viewport.Height / 2 + item.Height), Color.White);
+            }
+
             //spriteBatch.DrawString(font, "Congratulation!", Vector2.Zero, Color.White);
-            spriteBatch.DrawString(font, Math.Floor(playTime.TotalSeconds) + "sec", new Vector2(GraphicsDevice.Viewport.Width / 2,  GraphicsDevice.Viewport.Height / 2 + 90), Color.White);
-            
+            //spriteBatch.DrawString(font, Math.Floor(playTime.TotalSeconds) + "sec", new Vector2(GraphicsDevice.Viewport.Width / 2,  GraphicsDevice.Viewport.Height / 2 + 90), Color.White);
+
             spriteBatch.End();
 
             base.Draw(gameTime);
