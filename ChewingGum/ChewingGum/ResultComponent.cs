@@ -30,6 +30,7 @@ namespace ChewingGum
         private const int fontSize = 64;
 
         private Texture2D resultTexture;
+        private Texture2D secondTexture;
 
         private TimeSpan playTime;
 
@@ -71,6 +72,7 @@ namespace ChewingGum
             // TODO: use this.Content to load your game content here
             font = Game.Content.Load<SpriteFont>(@"memoFont");
             resultTexture = Game.Content.Load<Texture2D>(@"res\img\result");
+            secondTexture = Game.Content.Load<Texture2D>(@"res\img\TimeItem\sec");
             base.LoadContent();
             
         }
@@ -125,6 +127,7 @@ namespace ChewingGum
 
             //îwåi
             spriteBatch.Draw(resultTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
+            spriteBatch.Draw(secondTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
 
             //ÉXÉRÉAÅiïbêîÅjï\é¶
             for (int i = 0; i < wordCount; i++)

@@ -14,8 +14,8 @@ namespace ChewingGum
     public class ConvertTime
     {
         private Texture2D[] timeItem;
-        private Vector2 itemPosition;
-        private const float scale = 1.0f;
+
+        //private const float scale = 1.0f;
 
         public ConvertTime(Game game)
         {
